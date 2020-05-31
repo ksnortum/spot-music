@@ -1,0 +1,6 @@
+# No bin files
+/target
+
+# No IDE files
+/.idea
+spot-music.iml
