@@ -9,9 +9,9 @@ import java.util.Map;
 import static net.snortum.spotmusic.model.GlobalData.PORT_NUMBER;
 
 public class Main {
-    private static final String ACCESS_FLAG = "-access";
-    private static final String RESOURCE_FLAG = "-resource";
-    private static final String PAGE_FLAG = "-page";
+    private static final String ACCESS_FLAG = "--access";
+    private static final String RESOURCE_FLAG = "--resource";
+    private static final String PAGE_FLAG = "--items-per-page";
 
     public static void main(String[] args) {
         new Main().run(args);

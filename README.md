@@ -21,7 +21,7 @@ The application should startup.  You can also run this from your favorite IDE.
 The first thing you should do is issue the `auth` command.  This will display a link for you to copy and paste
 (or maybe you have a "launch link" function from your terminal window).  It will wait 30 seconds for your
 authorization from the web page (this should be improved).  If the application receives the authorization
-correctly, the web page will be cleared and a message will display that the code was received.  You can now 
+correctly, the web page will be cleared, and a message will display that the code was received.  You can now 
 close the window and return to the application.
 
 If the authorization is cancelled or takes longer than 30 seconds, the application will display "Program not 
@@ -30,8 +30,8 @@ command processing.
 
 ### next and prev
 There is basic pagination for the rest of the commands, which are all lists.  `next` will display the next
-five items.  This number can be changed at the command line with the `--pages <number>` flag (except that the 
-Maven command doesn't accept flags that aren't Maven-releated.  Change this).
+five items.  This number can be changed at the command line with the `--items-per-pages <number>` flag 
+(except that the Maven command doesn't accept flags that aren't Maven-related.  Change this).
 
 ### new
 This command will display all the new releases on Spotify.
@@ -43,7 +43,7 @@ This will display all the featured music.
 This will list all the categories on Spotify.
 
 ### playlists <category>
-This command will list all the playlists from a certain category.  This category must appear in the categoies
+This command will list all the playlists from a certain category.  This category must appear in the categories
 list.  Currently, you must list the categories before you use them, but this will change.
 
 ### exit
