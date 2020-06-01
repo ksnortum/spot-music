@@ -25,4 +25,8 @@ public class MenuView {
         System.out.println("next - display the next page of data");
         System.out.println("prev - display the previous page of data");
     }
+
+    public void displayPrompt() {
+        System.out.print(":");
+    }
 }

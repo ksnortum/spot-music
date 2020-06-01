@@ -35,6 +35,7 @@ public class MenuController {
         String action;
 
         do {
+            menuView.displayPrompt();
             action = MenuInput.getAction();
             String category = "unknown";
             Matcher matcher = PLAYLISTS_PATTERN.matcher(action);
@@ -78,6 +79,6 @@ public class MenuController {
                     menuView.displayHelp();
             }
 
-        } while (!"exit".equals(action));
+        } while (!"exit".equals(action) && !"quit".equals(action));
     }
 }
