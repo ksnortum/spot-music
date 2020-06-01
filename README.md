@@ -12,6 +12,10 @@ This is a simple command line application that demonstrates how to use the API o
 After downloading or cloning the applications, `cd` into the directory with `pom.xml` in it.  This
 should be just beneath the top directory.  Issue this Maven command:
 
+    mvn package
+
+You only need to do this once.  Then after that, issue the command:
+
     mvn exec:java
     
 The application should startup.  You can also run this from your favorite IDE.
@@ -46,7 +50,10 @@ This will list all the categories on Spotify.
 This command will list all the playlists from a certain category.  This category must appear in the categories
 list.  Currently, you must list the categories before you use them, but this will change.
 
-### exit
+### help
+Displays a list of commands and what they do.
+
+### quit or exit
 Exits the application.
 
 ## TODO
@@ -58,3 +65,6 @@ Exits the application.
 * load categories on startup?  or when the first `playlist` command is issued?
 * display a special caret when the app wants input.
 * add a way to change the number of items per page at the command prompt
+
+## Bugs
+* after a cancelled authorization and typing "quit", the program hangs

@@ -30,6 +30,8 @@ public class MenuController {
     }
 
     public void inputLoop() {
+        menuView.welcome();
+        menuView.displayHelp();
         String action;
 
         do {
@@ -64,11 +66,16 @@ public class MenuController {
                 case "prev":
                     pagination.printPreviousPage();
                     break;
+                case "help":
+                    menuView.displayHelp();
+                    break;
                 case "exit":
+                case "quit":
                     menuView.exitMessage();
                     break;
                 default:
                     menuView.actionNotFoundMessage(action);
+                    menuView.displayHelp();
             }
 
         } while (!"exit".equals(action));
