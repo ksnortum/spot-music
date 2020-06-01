@@ -18,7 +18,7 @@ public class AuthorizationController {
 
     void getAuthorization() {
         if (data.isAuthorized()) {
-            // TODO, print some message
+            authorizationView.alreadyAuthorized();
             return;
         }
 

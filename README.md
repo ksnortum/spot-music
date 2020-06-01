@@ -7,9 +7,19 @@ This is a simple command line application that demonstrates how to use the API o
 ## Requirements
 * Java 11
 * Maven 3.6
+* Git 2.25
+
+(It may run on earlier version of Maven and Git, but this is what I've tested.)
+
+## Platforms
+Tested on:
+* Windows 1909
+* Ubuntu 20.04
+* Should work fine in MacOS, but it has not been tested
 
 ## Execution
-After downloading or cloning the applications, `cd` into the directory with `pom.xml` in it.  This
+Get to a command line: Terminal on Linux  (and Macs?) or Command Prompt or PowerShell on Windows.
+After downloading or cloning the application, `cd` into the directory with `pom.xml` in it.  This
 should be just beneath the top directory.  Issue this Maven command:
 
     mvn clean package
@@ -62,7 +72,7 @@ Displays a list of commands and what they do.
 Exits the application.
 
 ## TODO
-* add a GUI?
+* add a GUI? or run in a web browser
 * a better way to wait for authorization
 * create `.sh` and `.bat` files to launch the JAR file, when it's ready
 * start auth command automatically at startup

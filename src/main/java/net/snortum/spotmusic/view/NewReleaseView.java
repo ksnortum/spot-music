@@ -8,8 +8,8 @@ import java.util.List;
 import static net.snortum.spotmusic.model.GlobalData.NO_AUTH_MESSAGE;
 
 public class NewReleaseView {
-    private Data data;
-    private Pagination pagination;
+    private final Data data;
+    private final Pagination pagination;
 
     public NewReleaseView(Data data) {
         this.data = data;

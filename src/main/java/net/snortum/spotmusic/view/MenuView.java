@@ -2,7 +2,7 @@ package net.snortum.spotmusic.view;
 
 public class MenuView {
     public void exitMessage() {
-        System.out.println("---GOODBYE!---");
+        System.out.println("Goodbye!");
     }
 
     public void actionNotFoundMessage(String action) {

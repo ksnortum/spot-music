@@ -26,4 +26,8 @@ public class AuthorizationView {
     public void successMessage() {
         System.out.println("Success!");
     }
+
+    public void alreadyAuthorized() {
+        System.out.println("You are already authorized and ready to go!");
+    }
 }
