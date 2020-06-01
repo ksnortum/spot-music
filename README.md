@@ -65,6 +65,3 @@ Exits the application.
 * load categories on startup?  or when the first `playlist` command is issued?
 * display a special caret when the app wants input.
 * add a way to change the number of items per page at the command prompt
-
-## Bugs
-* after a cancelled authorization and typing "quit", the program hangs

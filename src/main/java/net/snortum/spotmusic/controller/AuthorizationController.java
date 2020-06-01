@@ -41,6 +41,7 @@ public class AuthorizationController {
 
         if ("".equals(data.getAuthCode())) {
             System.err.println("Program not responding");
+            serverServices.stopServer();
             return;
         }
 
