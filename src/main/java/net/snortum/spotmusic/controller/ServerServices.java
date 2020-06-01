@@ -3,6 +3,7 @@ package net.snortum.spotmusic.controller;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpServer;
 import net.snortum.spotmusic.model.Data;
+import net.snortum.spotmusic.view.ServerView;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
@@ -15,9 +16,11 @@ import static net.snortum.spotmusic.model.GlobalData.PORT_NUMBER;
 public class ServerServices {
     private HttpServer server;
     private final Data data;
+    private final ServerView serverView;
 
     ServerServices(Data data) {
         this.data = data;
+        serverView = new ServerView();
     }
 
     void startServer() {
@@ -34,12 +37,13 @@ public class ServerServices {
                             data.setAuthCode(queryMap.get("code"));
                             writeSuccessToBrowser(exchange);
                         } else if (queryMap.containsKey("error")) {
-                            //String error = queryMap.get("error");
-                            //System.out.printf("Return status is an error: %s%n", error); // debug
+                            String error = queryMap.get("error");
+                            System.err.printf("Return status is an error: %s%n", error);
+                            data.setAuthCode("error");
                             writeErrorToBrowser(exchange);
-                        } else {
-                            //System.out.println("Unknown query:");
-                            //System.out.println(query); // debug
+                        } else if (query != null) {
+                            System.err.println("Unknown query:");
+                            System.err.println(query);
                             writeErrorToBrowser(exchange);
                         }
                     }
@@ -75,12 +79,12 @@ public class ServerServices {
     }
 
     private void writeSuccessToBrowser(HttpExchange exchange) {
-        String message = "Got the code. Return back to your program.";
+        String message = serverView.successHtml();
         writeToBrowser(exchange, message, 200);
     }
 
     private void writeErrorToBrowser(HttpExchange exchange) {
-        String message = "Not found authorization code. Try again.";
+        String message = serverView.failureHtml();
         writeToBrowser(exchange, message, 400);
     }
 

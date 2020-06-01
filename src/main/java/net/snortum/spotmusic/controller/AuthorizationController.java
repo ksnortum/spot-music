@@ -39,8 +39,9 @@ public class AuthorizationController {
             count++;
         }
 
-        if ("".equals(data.getAuthCode())) {
+        if ("".equals(data.getAuthCode()) || "error".equals(data.getAuthCode())) {
             System.err.println("Could not authorize user");
+            data.setAuthCode("");
             serverServices.stopServer();
             return;
         }

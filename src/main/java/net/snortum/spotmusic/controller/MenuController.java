@@ -9,7 +9,6 @@ import java.util.regex.Pattern;
 public class MenuController {
     private static final Pattern PLAYLISTS_PATTERN = Pattern.compile("(playlists)\\s+(.+)");
 
-    private final Data data;
     private final NewReleaseController releaseController;
     private final FeaturedController featuredController;
     private final CategoriesController categoriesController;
@@ -19,7 +18,6 @@ public class MenuController {
     private final MenuView menuView;
 
     public MenuController(Data data) {
-        this.data = data;
         releaseController = new NewReleaseController(data);
         featuredController = new FeaturedController(data);
         categoriesController = new CategoriesController(data);
