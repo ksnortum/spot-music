@@ -12,13 +12,18 @@ This is a simple command line application that demonstrates how to use the API o
 After downloading or cloning the applications, `cd` into the directory with `pom.xml` in it.  This
 should be just beneath the top directory.  Issue this Maven command:
 
-    mvn package
+    mvn clean package
 
 You only need to do this once.  Then after that, issue the command:
 
     mvn exec:java
     
-The application should startup.  You can also run this from your favorite IDE.
+The application should startup.  Alternatively, you can run the jar file directly in Java.  `cd` to the
+target directory and issue this command (replace the `x` with the correct version number:
+
+    java -jar spot-music-0.0.x-jar-with-dependencies.jar
+
+You can also run the application from your favorite IDE.
 
 ## Usage
 ### auth
@@ -59,9 +64,7 @@ Exits the application.
 ## TODO
 * add a GUI?
 * a better way to wait for authorization
-* create executable JAR
 * create `.sh` and `.bat` files to launch the JAR file, when it's ready
 * start auth command automatically at startup
 * load categories on startup?  or when the first `playlist` command is issued?
-* display a special caret when the app wants input.
 * add a way to change the number of items per page at the command prompt
