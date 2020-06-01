@@ -12,15 +12,15 @@ public class AuthorizationView {
     }
 
     public void useThisLinkMessage() {
-        System.out.println("use this link to request the access code:");
+        System.out.println("use this link to request the access access to Spotify:");
         System.out.printf("%s/authorize?client_id=%s&redirect_uri=%s&response_type=code%n%n",
                 data.getAccessURL(), CLIENT_ID, data.getRedirectURL());
-        System.out.println("waiting for code...");
+        System.out.println("waiting for authorization...");
     }
 
     public void codeReceivedMessage() {
-        System.out.println("code received");
-        System.out.println("Making http request for access_token...");
+        System.out.println("authorization received");
+        System.out.println("requesting access token...");
     }
 
     public void successMessage() {

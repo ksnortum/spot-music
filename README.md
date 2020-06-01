@@ -33,14 +33,14 @@ authorization from the web page (this should be improved).  If the application r
 correctly, the web page will be cleared, and a message will display that the code was received.  You can now 
 close the window and return to the application.
 
-If the authorization is cancelled or takes longer than 30 seconds, the application will display "Program not 
-responding" (change this).  You will have to wait the full 30 seconds before control is passed back to the
+If the authorization is cancelled or takes longer than 30 seconds, the application will display "Could not 
+authorize user".  You will have to wait the full 30 seconds before control is passed back to the
 command processing. 
 
 ### next and prev
 There is basic pagination for the rest of the commands, which are all lists.  `next` will display the next
-five items.  This number can be changed at the command line with the `--items-per-pages <number>` flag 
-(except that the Maven command doesn't accept flags that aren't Maven-related.  Change this).
+five items.  This number can be changed at the command line with the `--items-per-pages <number>` flag. 
+You can currently only use the flag when launching the application via the jar file. 
 
 ### new
 This command will display all the new releases on Spotify.
@@ -68,3 +68,4 @@ Exits the application.
 * start auth command automatically at startup
 * load categories on startup?  or when the first `playlist` command is issued?
 * add a way to change the number of items per page at the command prompt
+* add HTML to the comments sent back to the client after authorization success or failure

@@ -40,7 +40,7 @@ public class AuthorizationController {
         }
 
         if ("".equals(data.getAuthCode())) {
-            System.err.println("Program not responding");
+            System.err.println("Could not authorize user");
             serverServices.stopServer();
             return;
         }
