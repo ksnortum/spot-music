@@ -11,11 +11,12 @@ public class AuthorizationView {
         this.data = data;
     }
 
-    public void useThisLinkMessage() {
+    public void useThisLinkMessage(int timeoutInSeconds) {
         System.out.println("use this link to request the access access to Spotify:");
         System.out.printf("%s/authorize?client_id=%s&redirect_uri=%s&response_type=code%n%n",
                 data.getAccessURL(), CLIENT_ID, data.getRedirectURL());
         System.out.println("waiting for authorization...");
+        System.out.printf("(Will timeout in %d seconds)%n", timeoutInSeconds);
     }
 
     public void codeReceivedMessage() {

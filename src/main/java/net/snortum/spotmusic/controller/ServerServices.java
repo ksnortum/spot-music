@@ -10,6 +10,7 @@ import java.net.InetSocketAddress;
 import java.net.URI;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.CountDownLatch;
 
 import static net.snortum.spotmusic.model.GlobalData.PORT_NUMBER;
 
@@ -23,7 +24,7 @@ public class ServerServices {
         serverView = new ServerView();
     }
 
-    void startServer() {
+    void startServer(CountDownLatch latch) {
         try {
             server = HttpServer.create();
             server.bind(new InetSocketAddress(PORT_NUMBER), 0);
@@ -46,6 +47,8 @@ public class ServerServices {
                             System.err.println(query);
                             writeErrorToBrowser(exchange);
                         }
+
+                        latch.countDown();
                     }
             );
             server.start();

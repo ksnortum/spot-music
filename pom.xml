@@ -5,7 +5,7 @@
     <groupId>net.snortum</groupId>
     <artifactId>spot-music</artifactId>
     <packaging>jar</packaging>
-    <version>0.0.8</version>
+    <version>0.0.9</version>
     <name>spot-music</name>
     <url>http://maven.apache.org</url>
 

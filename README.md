@@ -43,8 +43,8 @@ authorization from the web page (this should be improved).  If the application r
 correctly, the web page will be cleared, and a message will display that the code was received.  You can now 
 close the window and return to the application.
 
-If the authorization is cancelled or takes longer than 30 seconds, the application will display "Could not 
-authorize user".  You will have to wait the full 30 seconds before control is passed back to the
+If the authorization is cancelled or takes longer than 60 seconds, the application will display "Could not 
+authorize user".  You will have to wait the full 60 seconds before control is passed back to the
 command processing. 
 
 ### next and prev
@@ -73,9 +73,7 @@ Exits the application.
 
 ## TODO
 * add a GUI? or run in a web browser
-* a better way to wait for authorization
 * create `.sh` and `.bat` files to launch the JAR file, when it's ready
 * start auth command automatically at startup
 * load categories on startup?  or when the first `playlist` command is issued?
 * add a way to change the number of items per page at the command prompt
-* add HTML to the comments sent back to the client after authorization success or failure

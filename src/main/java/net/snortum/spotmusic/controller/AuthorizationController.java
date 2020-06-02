@@ -3,7 +3,12 @@ package net.snortum.spotmusic.controller;
 import net.snortum.spotmusic.model.Data;
 import net.snortum.spotmusic.view.AuthorizationView;
 
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
+
 public class AuthorizationController {
+    private static final int TIMEOUT_IN_SECONDS = 60;
+
     private final Data data;
     private final ServerServices serverServices;
     private final ClientServices clientServices;
@@ -22,21 +27,14 @@ public class AuthorizationController {
             return;
         }
 
-        serverServices.startServer();
-        authorizationView.useThisLinkMessage();
+        CountDownLatch latch = new CountDownLatch(1);
+        serverServices.startServer(latch);
+        authorizationView.useThisLinkMessage(TIMEOUT_IN_SECONDS);
 
-        // Wait up to 30 seconds for server to respond
-        // TODO, find a better way to do this
-        int count = 0;
-        while ("".equals(data.getAuthCode()) && count < 30) {
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                System.err.println("Why did you interrupt my sleep?");
-                e.printStackTrace();
-            }
-
-            count++;
+        try {
+            latch.await(TIMEOUT_IN_SECONDS, TimeUnit.SECONDS);
+        } catch (InterruptedException e) {
+            // Do nothing
         }
 
         if ("".equals(data.getAuthCode()) || "error".equals(data.getAuthCode())) {
